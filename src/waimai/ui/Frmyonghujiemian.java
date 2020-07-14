@@ -74,9 +74,11 @@ public class Frmyonghujiemian extends JFrame implements ActionListener{
 	JButton btnNewButton = new JButton("\u5546\u5BB6\u4FE1\u606F");
 	JButton button = new JButton("\u5BC6\u7801\u4FEE\u6539");
 	JButton button_1 = new JButton("\u7F16\u8F91\u5730\u5740");
+	private final JButton button_2 = new JButton("\u67E5\u770B\u8BA2\u5355");
+	private final JButton btnNewButton_1 = new JButton("\u9886\u53D6\u4F18\u60E0\u5238");
 	public Frmyonghujiemian() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 744, 376);
+		setBounds(100, 100, 833, 376);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -90,19 +92,27 @@ public class Frmyonghujiemian extends JFrame implements ActionListener{
 	    contentPane.add(label);
 	    
 	    //btnNewButton = new JButton("\u5546\u5BB6\u4FE1\u606F");
-	    btnNewButton.setBounds(623, 288, 97, 23);
+	    btnNewButton.setBounds(712, 288, 97, 23);
 	    contentPane.add(btnNewButton);
 	    
 	    
-	    button.setBounds(498, 288, 97, 23);
+	    button.setBounds(605, 288, 97, 23);
 	    contentPane.add(button);
 	    
 	    
-	    button_1.setBounds(363, 288, 97, 23);
+	    button_1.setBounds(498, 288, 97, 23);
 	    contentPane.add(button_1);
+	    button_2.setBounds(391, 288, 97, 23);
+	    
+	    contentPane.add(button_2);
+	    btnNewButton_1.setBounds(255, 288, 126, 23);
+	    
+	    contentPane.add(btnNewButton_1);
 	    this.btnNewButton.addActionListener(this);
 	    this.button.addActionListener(this);
 	    this.button_1.addActionListener(this);
+	    this.button_2.addActionListener(this);
+	    this.btnNewButton_1.addActionListener(this);
 	    this.datayonghuPlan.addMouseListener(new MouseAdapter (){
 
 			@Override
@@ -135,6 +145,18 @@ public class Frmyonghujiemian extends JFrame implements ActionListener{
 		{
 			Frmupdatedizhi dizhi = new Frmupdatedizhi();
 			dizhi.setVisible(true);
+			this.setVisible(false);
+		}
+		else if(e.getSource()==this.button_2)
+		{
+				Frmdingdan aa = new Frmdingdan();
+				aa.setVisible(true);
+				this.setVisible(false);
+		}
+		else if(e.getSource()==this.btnNewButton_1)
+		{
+			Frmyouhuiquan fy = new Frmyouhuiquan();
+			fy.setVisible(true);
 			this.setVisible(false);
 		}
 	}

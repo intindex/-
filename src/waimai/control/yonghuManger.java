@@ -17,7 +17,7 @@ public class yonghuManger implements IyonghuManger {
     public Beanyonghuxinxi login(String userid,String pwd) throws BusinessException, DbException
     {
     	Connection conn=null;
- Beanyonghuxinxi u = null;
+       Beanyonghuxinxi u = null;
 	    try {
 	    	conn=DBUtil.getConnection();
 	    	String sql = "select * from yonghuxinxi where name = ? ";
@@ -29,6 +29,7 @@ public class yonghuManger implements IyonghuManger {
 			u.setYonghubianhao(rs.getInt(1));
 			u.setName(rs.getString(2));
 			u.setMima(rs.getString(4));
+			u.setGoumaidingdanshuliang(rs.getInt(11));
 			if(!pwd.equals(u.getMima()))
 				throw new BusinessException("密码错误");
 			pst.close();
@@ -59,6 +60,8 @@ public class yonghuManger implements IyonghuManger {
 			throw new BusinessException("mima不能为空");
 		if(!pwd.equals(pwd2))
 				throw new BusinessException("两次密码输入不一致");
+		if(!"男".equals(xingbie)&&!"女".equals(xingbie))
+			throw new BusinessException("性别输入有误");
 		Connection conn=null;
 		try {
 			conn=DBUtil.getConnection();
@@ -67,7 +70,7 @@ public class yonghuManger implements IyonghuManger {
 			pst.setString(1,userid);
 			java.sql.ResultSet rs=pst.executeQuery();
 			if(rs.next()) throw new BusinessException("用户名重复");
-			 sql = "insert into yonghuxinxi(name,sex,mima,shoujihaoma,city) values(?,?,?,?,?)";
+			 sql = "insert into yonghuxinxi(name,sex,mima,shoujihaoma,city,huiyuan,zhuceshijian,goumaidingdanshuliang) values(?,?,?,?,?,?,?,?)";
 		     pst=conn.prepareStatement(sql);
 		    
 			pst.setString(1,userid);
@@ -75,6 +78,9 @@ public class yonghuManger implements IyonghuManger {
 			pst.setString(3, pwd);
 			pst.setString(4, shouji);
 			pst.setString(5, city);
+			pst.setString(6, "否");
+			pst.setTimestamp(7,  new java.sql.Timestamp(System.currentTimeMillis()));
+			pst.setInt(8, 0);
 			//pst.setTimestamp(3, new java.sql.Timestamp(System.currentTimeMillis()));
 			pst.execute();
 			pst.close();
@@ -99,6 +105,8 @@ public class yonghuManger implements IyonghuManger {
 	public Beanyonghuxinxi changePwd(String user, String oldPwd, String newPwd, String newPwd2) throws BaseException {
 		if(oldPwd==null) throw new BusinessException("原始密码不能为空");
 		if(newPwd==null || "".equals(newPwd) || newPwd.length()>16) throw new BusinessException("必须为1-16个字符");
+		if(!newPwd.equals(newPwd2))
+			throw new BusinessException("两次密码不一致");
 		Connection conn=null;
 		try {
 			conn=DBUtil.getConnection();

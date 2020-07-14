@@ -48,6 +48,7 @@ public class Frmshangjia extends JFrame implements ActionListener{
 	private final JLabel label_3 = new JLabel("\u6EE1\u51CF\u65B9\u6848\u64CD\u4F5C");
 	private final JButton button_5 = new JButton("\u5220\u9664\u6EE1\u51CF\u65B9\u6848");
 	private final JButton btnNewButton_1 = new JButton("\u5206\u914D\u9A91\u624B");
+	JButton btnNewButton_2 = new JButton("\u589E\u52A0\u4F18\u60E0\u5238");
 	public Frmshangjia() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 629, 385);
@@ -97,6 +98,10 @@ public class Frmshangjia extends JFrame implements ActionListener{
 		btnNewButton_1.setBounds(49, 268, 146, 40);
 		
 		contentPane.add(btnNewButton_1);
+		
+		
+		btnNewButton_2.setBounds(245, 268, 146, 40);
+		contentPane.add(btnNewButton_2);
 		this.button.addActionListener(this);
 		this.button_1.addActionListener(this);
 		this.button_2.addActionListener(this);
@@ -105,6 +110,7 @@ public class Frmshangjia extends JFrame implements ActionListener{
 		this.button_5.addActionListener(this);
 		this.btnNewButton.addActionListener(this);
 		this.btnNewButton_1.addActionListener(this);
+		this.btnNewButton_2.addActionListener(this);
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -113,11 +119,13 @@ public class Frmshangjia extends JFrame implements ActionListener{
 		{
 			Frmaddshangjia aFrmaddshangjia  = new Frmaddshangjia();
 			aFrmaddshangjia.setVisible(true);
+			this.setVisible(false);
 		}
 		else if(e.getSource()==this.button_1)
 		{
 			Frmdeleteshangjia jFrmdeleteshangjia = new Frmdeleteshangjia();
 			jFrmdeleteshangjia .setVisible(true);
+			this.setVisible(false);
 		}
 		else if(e.getSource()==this.button_2)
 		{
@@ -155,6 +163,11 @@ public class Frmshangjia extends JFrame implements ActionListener{
 			qq.setVisible(true);
 			this.setVisible(false);
 		}
+		else if(e.getSource()==this.btnNewButton_2)
+		{
+			Frmaddyouhuiquan aq = new Frmaddyouhuiquan();
+			aq.setVisible(true);
+			this.setVisible(false);
+		}
 	}
-
 }

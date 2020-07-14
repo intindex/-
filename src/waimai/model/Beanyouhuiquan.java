@@ -3,11 +3,29 @@ package waimai.model;
 import java.sql.Date;
 
 public class Beanyouhuiquan {
+	public static Beanyouhuiquan currentLoginUser=null;
+	public static final String[] tblyouhuiquanTitle={"优惠金额","集单要求数","起始日期","结束日期"};
+	public String getCell(int col){
+		if(col==0) return ""+this.getYouhuijine();
+		else if(col==1) return ""+this.getJidanyaoqiushu();
+		else if(col==2) return ""+this.getQishiriqi();
+		else if(col==3) return ""+this.getJieshuriqi();
+		else return "";
+	}
        private int youhuiquanbianhao;
        private double youhuijine;
        private int jidanyaoqiushu;
        private Date qishiriqi;
        private Date jieshuriqi;
+       
+       private int youhuiquanshuliang;
+
+	public int getYouhuiquanshuliang() {
+		return youhuiquanshuliang;
+	}
+	public void setYouhuiquanshuliang(int youhuiquanshuliang) {
+		this.youhuiquanshuliang = youhuiquanshuliang;
+	}
 	public int getYouhuiquanbianhao() {
 		return youhuiquanbianhao;
 	}

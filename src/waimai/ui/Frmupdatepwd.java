@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+
 import waimai.model.Beanyonghuxinxi;
 import waimai.start.yonghuUttil;
 import waimai.util.BaseException;
@@ -47,6 +48,7 @@ public class Frmupdatepwd extends JFrame implements ActionListener{
 	 * Create the frame.
 	 */
 	JButton btnNewButton = new JButton("\u786E\u8BA4\u4FEE\u6539");
+	JButton button = new JButton("\u8FD4\u56DE");
 	public Frmupdatepwd() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -91,6 +93,11 @@ public class Frmupdatepwd extends JFrame implements ActionListener{
 		
 		btnNewButton.setBounds(339, 230, 97, 23);
 		contentPane.add(btnNewButton);
+		
+		
+		button.setBounds(221, 230, 97, 23);
+		contentPane.add(button);
+	    this.button.addActionListener(this);
 		this.btnNewButton.addActionListener(this);
 	}
 	@Override
@@ -108,6 +115,12 @@ public class Frmupdatepwd extends JFrame implements ActionListener{
 				JOptionPane.showMessageDialog(null, e1.getMessage(), "´íÎó",JOptionPane.ERROR_MESSAGE);
 				return;
 				}
+			this.setVisible(false);
+		}
+		else if(e.getSource() == this.button)
+		{
+			Frmyonghujiemian  wewe = new Frmyonghujiemian();
+			wewe.setVisible(true);
 			this.setVisible(false);
 		}
 	}

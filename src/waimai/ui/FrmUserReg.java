@@ -49,6 +49,7 @@ public class FrmUserReg extends JFrame implements ActionListener{
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
+	JButton button_1 = new JButton("\u8FD4\u56DE");
 	public FrmUserReg() {
 		super();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -113,7 +114,12 @@ public class FrmUserReg extends JFrame implements ActionListener{
 		textField_3.setBounds(180, 229, 141, 21);
 		contentPane.add(textField_3);
 		textField_3.setColumns(10);
+		
+		
+		button_1.setBounds(396, 289, 97, 23);
+		contentPane.add(button_1);
 		this.button.addActionListener(this);
+		this.button_1.addActionListener(this);
 	}
 
 	@Override
@@ -135,6 +141,10 @@ public class FrmUserReg extends JFrame implements ActionListener{
 				return;
 				}
 		    this.setVisible(false);
+		}
+		else if(e.getSource()==this.button_1)
+		{
+			this.setVisible(false);
 		}
 	}
 }

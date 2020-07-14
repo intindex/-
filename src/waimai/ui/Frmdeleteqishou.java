@@ -87,6 +87,14 @@ public class Frmdeleteqishou extends JFrame implements ActionListener{
 				JOptionPane.showMessageDialog(null, e1.getMessage(), "´íÎó",JOptionPane.ERROR_MESSAGE);
 				return;
 				}
+			Frmshangjia dad = new Frmshangjia();
+			dad.setVisible(true);
+			this.setVisible(false);
+		}
+		else if(e.getSource()==this.button_1)
+		{
+			Frmshangjia dad = new Frmshangjia();
+			dad.setVisible(true);
 			this.setVisible(false);
 		}
 	}

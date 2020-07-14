@@ -59,7 +59,7 @@ public class dizhiManger implements Idizhimanger{
 	}
 
 	@Override
-	public Beandizhi insertdizhi(int n) throws BaseException {
+	public Beandizhi insertdizhi(int n,int m1) throws BaseException {
 		// TODO Auto-generated method stub
 		Connection conn=null;
 		try {
@@ -77,10 +77,33 @@ public class dizhiManger implements Idizhimanger{
 			int m = 0;
 			if(rs.next())
 			m=rs.getInt(1);
-			sql = "update shangpindingdan set dizhibianhao=? where dingdanbianhao = ?";
+			sql = "select youhuijine from youhuiquanxinxibiao where youhuiquanbianhao = ?";
+			pst = conn.prepareStatement(sql);
+			pst.setInt(1, m1);
+			rs = pst.executeQuery();
+			double m2 = 0;
+			if(rs.next())
+			 m2 = rs.getDouble(1);
+			 sql = "update shangpindingdan set dizhibianhao = ?,youhuiquanbianhao = ?,jiesuanjine = jiesuanjine-? where dingdanbianhao = ?";
 			 pst = conn.prepareStatement(sql);
 			 pst.setInt(1, n);
-			 pst.setInt(2, m);
+			 pst.setInt(2, m1);
+			 pst.setDouble(3, m2);
+			 pst.setInt(4, m);
+			 pst.execute();
+			 pst.close();
+			 sql = "delete from youhuiquanchuyoubiao where youhuiquanbianhao = ? and yonghubianhao = ? and shuliang = ?";
+			 pst = conn.prepareStatement(sql);
+			 pst.setInt(1, m1);
+			 pst.setInt(2, Beanyonghuxinxi.currentLoginUser.getYonghubianhao());
+			 pst.setInt(3, 1);
+			 pst.execute();
+			 pst.close();
+			 sql = "update youhuiquanchuyoubiao set shuliang = shuliang -1 where youhuiquanbianhao = ? and yonghubianhao = ? and shuliang > ?";
+			 pst = conn.prepareStatement(sql);
+			 pst.setInt(1, m1);
+			 pst.setInt(2, Beanyonghuxinxi.currentLoginUser.getYonghubianhao());
+			 pst.setInt(3, 1);	
 			 pst.execute();
 			 pst.close();
 		}catch (SQLException e) {

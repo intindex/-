@@ -165,6 +165,7 @@ public class qishouManger implements IqishouManger{
 			pst.setInt(2, jkl.getQishoubianahao());
 			pst.execute();
 			pst.close();
+			
 		}catch (SQLException e) {
 			e.printStackTrace();
 			throw new DbException(e);

@@ -43,6 +43,7 @@ public class Frmdeleteshangjia extends JFrame implements ActionListener{
 	 * Create the frame.
 	 */
 	JButton button = new JButton("\u786E\u8BA4");
+	private final JButton button_1 = new JButton("\u8FD4\u56DE");
 	public Frmdeleteshangjia() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -63,7 +64,11 @@ public class Frmdeleteshangjia extends JFrame implements ActionListener{
 		
 		button.setBounds(329, 230, 97, 23);
 		contentPane.add(button);
+		button_1.setBounds(221, 230, 97, 23);
+		
+		contentPane.add(button_1);
 		this.button.addActionListener(this);
+		this.button_1.addActionListener(this);
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -77,6 +82,14 @@ public class Frmdeleteshangjia extends JFrame implements ActionListener{
 				JOptionPane.showMessageDialog(null, e1.getMessage(), "´íÎó",JOptionPane.ERROR_MESSAGE);
 				return;
 				}
+			Frmshangjia frm = new Frmshangjia ();
+			frm.setVisible(true);
+			this.setVisible(false);
+		}
+		else if(e.getSource()==this.button_1)
+		{
+			Frmshangjia frm = new Frmshangjia ();
+			frm.setVisible(true);
 			this.setVisible(false);
 		}
 	}

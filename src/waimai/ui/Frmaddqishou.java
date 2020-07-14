@@ -44,6 +44,7 @@ public class Frmaddqishou extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	JButton button = new JButton("\u786E\u8BA4");
+	JButton button_1 = new JButton("\u8FD4\u56DE");
 	public Frmaddqishou() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -73,7 +74,12 @@ public class Frmaddqishou extends JFrame implements ActionListener {
 		
 		button.setBounds(307, 215, 97, 23);
 		contentPane.add(button);
+		
+		
+		button_1.setBounds(191, 215, 97, 23);
+		contentPane.add(button_1);
 		this.button.addActionListener(this);
+		this.button_1.addActionListener(this);
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -88,8 +94,17 @@ public class Frmaddqishou extends JFrame implements ActionListener {
 				JOptionPane.showMessageDialog(null, e1.getMessage(), "´íÎó",JOptionPane.ERROR_MESSAGE);
 				return;
 				}
+			Frmshangjia dad = new Frmshangjia();
+			dad.setVisible(true);
 			this.setVisible(false);
 		}
+		else if(e.getSource()==this.button_1)
+		{
+			Frmshangjia dad = new Frmshangjia();
+			dad.setVisible(true);
+			this.setVisible(false);
+		}
+		
 	}
 
 }

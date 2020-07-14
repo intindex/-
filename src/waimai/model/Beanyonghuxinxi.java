@@ -23,6 +23,13 @@ public class Beanyonghuxinxi {
    private Date zhuceshijian;
    private Date huiyuanjiezhiriqi;
    private String huiyuan;
+   private int goumaidingdanshuliang;
+public int getGoumaidingdanshuliang() {
+	return goumaidingdanshuliang;
+}
+public void setGoumaidingdanshuliang(int goumaidingdanshuliang) {
+	this.goumaidingdanshuliang = goumaidingdanshuliang;
+}
 public String getHuiyuan() {
 	return huiyuan;
 }

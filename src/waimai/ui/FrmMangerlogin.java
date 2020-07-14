@@ -45,6 +45,7 @@ public class FrmMangerlogin extends JFrame implements ActionListener{
 	 * Create the frame.
 	 */
 	JButton button = new JButton("\u767B\u5F55");
+	JButton button_1 = new JButton("\u8FD4\u56DE");
 	public FrmMangerlogin() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -73,7 +74,12 @@ public class FrmMangerlogin extends JFrame implements ActionListener{
 		
 		button.setBounds(275, 230, 97, 23);
 		contentPane.add(button);
+		
+		
+		button_1.setBounds(168, 230, 97, 23);
+		contentPane.add(button_1);
 		this.button.addActionListener(this);
+		this.button_1.addActionListener(this);
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -91,6 +97,12 @@ public class FrmMangerlogin extends JFrame implements ActionListener{
 		    Frmshangjia dd = new Frmshangjia();
 		    dd.setVisible(true);
 		    this.setVisible(false);
+		}
+		else if(e.getSource()==this.button_1)
+		{
+			Frmlogin ff = new Frmlogin();
+			ff.setVisible(true);
+			this.setVisible(false);
 		}
 	}
 }

@@ -193,17 +193,26 @@ public class FrmUserlogin extends JFrame implements ActionListener{
 		if(e.getSource()==this.btnNewButton)
 		{
 			
-			String nString = this.textField.getText();
-			String mString = this.textField_2.getText();
-			FrmUserlogin rFrmUserlogin = new FrmUserlogin();
-			rFrmUserlogin.setVisible(true);
+			//String nString = this.textField.getText();
+			int mString =0;
+			int nString=0;
+			try {
+				mString=Integer.parseInt(this.textField_2.getText());
+				nString =Integer.parseInt(this.textField.getText());
+			}catch (NumberFormatException e1) {
+				JOptionPane.showMessageDialog(null, "Êý×Ö²»ÄÜÎª¿Õ", "´íÎó",JOptionPane.ERROR_MESSAGE);
+				return;
+			}
+			
+			//FrmUserlogin rFrmUserlogin = new FrmUserlogin();
+			//rFrmUserlogin.setVisible(true);
 			int i=FrmUserlogin.this.datashangpinStep.getSelectedRow();
 			if(i<0) {
 				JOptionPane.showMessageDialog(null, "ÇëÑ¡Ôñ²½Öè", "´íÎó",JOptionPane.ERROR_MESSAGE);
 				return;
 			}
 			try {
-				yonghuUttil.shangpinManger.xiadan(this.planSteps.get(i),Integer.valueOf(nString),Integer.valueOf(mString));
+				yonghuUttil.shangpinManger.xiadan(this.planSteps.get(i),nString,mString);
 			} catch (BaseException e1) {
 				JOptionPane.showMessageDialog(null, e1.getMessage(), "´íÎó",JOptionPane.ERROR_MESSAGE);
 				return;

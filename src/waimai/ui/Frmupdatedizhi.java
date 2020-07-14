@@ -18,6 +18,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
+
 import waimai.model.Beandizhi;
 import waimai.start.yonghuUttil;
 import waimai.util.BaseException;
@@ -75,6 +76,7 @@ public class Frmupdatedizhi extends JFrame implements ActionListener{
 	JButton button_1 = new JButton("\u5220\u9664\u5730\u5740");
 	Beandizhi uu = new Beandizhi();
 	List<Beandizhi> ff = new ArrayList<Beandizhi>(); 
+	private final JButton button_2 = new JButton("\u8FD4\u56DE");
 	public Frmupdatedizhi() {
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -94,9 +96,13 @@ public class Frmupdatedizhi extends JFrame implements ActionListener{
 	    JScrollPane scrollPane2 = new JScrollPane(this.datadizhiPlan);
 	    scrollPane2.setBounds(10, 10, 671,273 );
 	    this.getContentPane().add(scrollPane2);
+	    button_2.setBounds(699, 291, 97, 23);
+	    
+	    contentPane.add(button_2);
 		this.reloaddizhiTable();
 		this.button.addActionListener(this);
 		this.button_1.addActionListener(this);
+		this.button_2.addActionListener(this);
 	    this.datadizhiPlan.addMouseListener(new MouseAdapter (){
 
 			@Override
@@ -130,6 +136,12 @@ public class Frmupdatedizhi extends JFrame implements ActionListener{
 				JOptionPane.showMessageDialog(null, e1.getMessage(), "´íÎó",JOptionPane.ERROR_MESSAGE);
 				return;
 				}
+			this.setVisible(false);
+		}
+		else if(e.getSource() == this.button_2)
+		{
+			Frmyonghujiemian sss = new Frmyonghujiemian();
+			sss.setVisible(true);
 			this.setVisible(false);
 		}
 		

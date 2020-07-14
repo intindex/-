@@ -70,6 +70,7 @@ public class Frmqishoufenpei extends JFrame implements ActionListener{
 		this.dataqishouPlan.repaint();
 	}
 	JButton button = new JButton("\u786E\u8BA4");
+	private final JButton button_1 = new JButton("\u8FD4\u56DE");
 	public Frmqishoufenpei() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 644, 423);
@@ -89,7 +90,11 @@ public class Frmqishoufenpei extends JFrame implements ActionListener{
 	    
 	    button.setBounds(523, 341, 97, 23);
 	    contentPane.add(button);
+	    button_1.setBounds(523, 285, 97, 23);
+	    
+	    contentPane.add(button_1);
 	    this.button.addActionListener(this);
+	    this.button_1.addActionListener(this);
 	    this.dataqishouPlan.addMouseListener(new MouseAdapter (){
 
 			@Override
@@ -121,8 +126,16 @@ public class Frmqishoufenpei extends JFrame implements ActionListener{
 				return;
 				
 		}
+			Frmshangjia dad = new Frmshangjia();
+			dad.setVisible(true);
 			this.setVisible(false);
 	    }
+		else if(e.getSource()==this.button_1)
+		{
+			Frmshangjia dad = new Frmshangjia();
+			dad.setVisible(true);
+			this.setVisible(false);
+		}
 
 }
 }
